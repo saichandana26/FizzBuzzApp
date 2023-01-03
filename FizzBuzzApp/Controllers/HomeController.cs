@@ -8,15 +8,13 @@ namespace FizzBuzzApp.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            FizzBuzzNumber fizzBuzzNumber = new FizzBuzzNumber();
-            fizzBuzzNumber.DayOfWeek = DateTime.Today.DayOfWeek.ToString();
-            fizzBuzzNumber.DisplayNumbers = null;
-            return View(fizzBuzzNumber);
+            return View();
         }
         [HttpPost]
         public IActionResult Index(FizzBuzzNumber fizzBuzzNumber)
         {
-            if (fizzBuzzNumber.DayOfWeek == "wednesday")
+            fizzBuzzNumber.DayOfWeek = DateTime.Today.DayOfWeek.ToString();
+            if (fizzBuzzNumber.DayOfWeek == "Wednesday")
             {
                 fizzBuzzNumber.ThreeDivisible = "Wizz";
                 fizzBuzzNumber.FiveDivisible = "Wuzz";
