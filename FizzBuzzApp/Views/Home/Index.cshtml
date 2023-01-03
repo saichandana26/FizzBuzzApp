@@ -14,11 +14,18 @@
 
 
 @if(Model.DisplayNumbers!=null){
+    
     <div>
         @foreach(var i in Model.DisplayNumbers){
-        <div>
-            @i
-        </div>
+        <table>
+            <tr>
+                <td> 
+                    @i
+                </td>
+            </tr>
+        </table>
         }
     </div>
-}
+    
+    }
+

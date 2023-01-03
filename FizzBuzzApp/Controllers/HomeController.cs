@@ -10,7 +10,6 @@ namespace FizzBuzzApp.Controllers
         {
             FizzBuzzNumber fizzBuzzNumber = new FizzBuzzNumber();
             fizzBuzzNumber.DayOfWeek = DateTime.Today.DayOfWeek.ToString();
-            
             fizzBuzzNumber.DisplayNumbers = null;
             return View(fizzBuzzNumber);
         }
@@ -53,22 +52,6 @@ namespace FizzBuzzApp.Controllers
             }
             return View(fizzBuzzNumber);
         }
-
-        [HttpGet]
-        public IActionResult Sai()
-        {
-            FizzBuzzNumber fizzBuzzNumber1 = new FizzBuzzNumber();
-            fizzBuzzNumber1.Number = 100;
-            return View(fizzBuzzNumber1);
-        }
-
-        [HttpPost]
-        public IActionResult Sai(FizzBuzzNumber fizzBuzzNumber)
-        {
-
-            return View(fizzBuzzNumber);
-        }
-
 
     }
 }
