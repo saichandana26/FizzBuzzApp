@@ -1,42 +1,24 @@
 ﻿@using FizzBuzzApp.Models
 @model FizzBuzzNumber
 @{
-    ViewData["Title"] = "Home Page";
+	ViewData["Title"] = "Fizz Buzz";
 }
-
-@using (Html.BeginForm("Index","Home",FormMethod.Post))
+<link href="~/css/stylesheet.css" rel="stylesheet" />
+@using (Html.BeginForm("Index", "Home", FormMethod.Post))
 {
-    <div>
-        Enter Number:@Html.TextBoxFor(Model=>Model.Number)
-        
-        <input type="submit" value="submit" />
-    </div>
+	<div>
+		Enter Number:@Html.TextBoxFor(Model=>Model.Number)
+
+		<input type="submit" value="submit" />
+	</div>
 }
-
-
-@if(Model!=null && Model.DisplayNumbers!=null){
-    
-    <div>
-        @foreach(var i in Model.DisplayNumbers){
-            <table>
-                <tr>
-                    <td>
-                        @if (i == "Fizz")
-                        {
-                            <span style="color:blue">@i</span>
-                        }
-                        else if(i=="Buzz")
-                        {
-                            <span style="color:green">@i</span>
-                        }
-                        else{
-                            @i
-                        }
-                    </td>
-            </tr>
-        </table>
-        }
-    </div>
-    
-    }
+@if (Model != null && Model.DisplayNumbers != null)
+{
+	@foreach (var i in Model.DisplayNumbers)
+	{
+		<div class="@(i=="Fizz"? "blue" : i=="Buzz"? "green" : "none")">
+			@i
+		</div>
+	}
+}
 

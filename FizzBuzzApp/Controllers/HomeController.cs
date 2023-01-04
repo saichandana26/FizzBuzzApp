@@ -10,38 +10,26 @@ namespace FizzBuzzApp.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Index(FizzBuzzNumber fizzBuzzNumber)
         {
-            fizzBuzzNumber.DayOfWeek = DateTime.Today.DayOfWeek.ToString();
-            if (fizzBuzzNumber.DayOfWeek == "Wednesday")
-            {
-                fizzBuzzNumber.ThreeDivisible = "Wizz";
-                fizzBuzzNumber.FiveDivisible = "Wuzz";
-                fizzBuzzNumber.ThreeAndFiveDivisible = "WizzWuzz";
-            }
-            else
-            {
-                fizzBuzzNumber.ThreeDivisible = "Fizz";
-                fizzBuzzNumber.FiveDivisible = "Buzz";
-                fizzBuzzNumber.ThreeAndFiveDivisible = "FizzBuzz";
-            }
-
-            fizzBuzzNumber.DisplayNumbers = new List<string>(fizzBuzzNumber.Number);
+            FizzBuzzWords fizzBuzzWords=new FizzBuzzWords();
+            fizzBuzzWords.SetWords();
+            fizzBuzzNumber.DisplayNumbers = new List<string>();
             for (int i = 1; i <= fizzBuzzNumber.Number; i++)
             {
-                if (i % 3 == 0 & i % 5 == 0)
+                if (i % 3 == 0 && i % 5 == 0)
                 {
-                    fizzBuzzNumber.DisplayNumbers.Add(fizzBuzzNumber.ThreeAndFiveDivisible);
+                    fizzBuzzNumber.DisplayNumbers.Add(fizzBuzzWords.ThreeAndFiveDivisible);
                 }
                 else if (i % 3 == 0)
                 {
-                    fizzBuzzNumber.DisplayNumbers.Add(fizzBuzzNumber.ThreeDivisible);
+                    fizzBuzzNumber.DisplayNumbers.Add(fizzBuzzWords.ThreeDivisible);
                 }
                 else if (i % 5 == 0)
                 {
-                    fizzBuzzNumber.DisplayNumbers.Add(fizzBuzzNumber.FiveDivisible);
-
+                    fizzBuzzNumber.DisplayNumbers.Add(fizzBuzzWords.FiveDivisible);
                 }
                 else
                 {
