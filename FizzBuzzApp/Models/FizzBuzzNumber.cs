@@ -9,5 +9,7 @@ namespace FizzBuzzApp.Models
         [Range(1, 1000, ErrorMessage = "Please enter value between 1 and 1000")]
         public int? Number { get; set; }
         public List<string>? DisplayNumbers { get; set; }
+
+   
     }
 }

@@ -1,10 +1,11 @@
 ﻿namespace FizzBuzzApp.Models
 {
-	public class FizzBuzzWords
+	public class FizzBuzzWords:IFizzBuzzWords
 	{
 		public string? ThreeDivisible { get; set; }
 		public string? FiveDivisible { get; set; }
 		public string? ThreeAndFiveDivisible { get; set; }
+
 		public void SetWords()
 		{
 			string dayOfWeek = DateTime.Today.DayOfWeek.ToString();
